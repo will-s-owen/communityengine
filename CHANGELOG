@@ -3,6 +3,8 @@
 * upgrade documentation/rake tasks to fix old migrations
 
 = 1.0.3
+* Photo albums
+* Static pages
 
 = 1.0.2
 * Rails 2.3 compatibility
