@@ -53,6 +53,11 @@ class User < ActiveRecord::Base
     has_many :friendships_not_initiated_by_me, :class_name => "Friendship", :foreign_key => "user_id", :conditions => ['initiator = ?', false], :dependent => :destroy
     has_many :occurances_as_friend, :class_name => "Friendship", :foreign_key => "friend_id", :dependent => :destroy
 
+    #group associations
+    has_many :memberships
+    has_many :groups, :through => :membership, :order => 'name'
+    has_many :memberships_initiated_by_me, :class_name => "Membership", :foreign_key => "user_id", :conditions => ['initiator = ?', true], :dependent => :destroy
+
     #forums
     has_many :moderatorships, :dependent => :destroy
     has_many :forums, :through => :moderatorships, :order => 'forums.name'
@@ -82,6 +87,22 @@ class User < ActiveRecord::Base
 
   ## Class Methods
 
+  def is_in_group?(group)
+    groups.find_by_id(group.id)
+  end
+
+  def can_request_membership_with(group)
+    !self.eql?(group.owner) && !self.membership_exists_with?(group)
+  end
+
+  def membership_exists_with?(group)
+    Membership.find(:first, :conditions => ["group_id = ? AND user_id = ?", group.id, self.id])
+  end
+
+  def has_reached_daily_member_request_limit?
+    memberships_initiated_by_me.count(:conditions => ['created_at > ?', Time.now.beginning_of_day]) >= Membership.daily_request_limit
+  end
+  
   # override activerecord's find to allow us to find by name or id transparently
   def self.find(*args)
     if args.is_a?(Array) and args.first.is_a?(String) and (args.first.index(/[a-zA-Z\-_]+/) or args.first.to_i.eql?(0) )

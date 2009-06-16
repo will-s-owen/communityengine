@@ -2,7 +2,20 @@
 recent_forum_posts '/forums/recent', :controller => 'sb_posts', :action => 'index'
 resources :forums, :sb_posts, :monitorship
 resources :sb_posts, :name_prefix => 'all_', :collection => { :search => :get, :monitored => :get }
+resources :group_permissions
 
+memberships '/memberships', :controller => 'memberships', :action => 'index'
+
+resources :groups, :member => {
+  :change_profile_groupphoto => :put,
+  :welcome_groupphoto => :get,
+  :roster => :get,
+  } do |group|
+  group.resources :groupphotos, :collection => {:swfupload => :post, :slideshow => :get}
+  group.resources :memberships, :member => { :accept => :put, :deny => :put }, :collection => { :accepted => :get, :pending => :get, :denied => :get }
+end
+
+  
 %w(forum).each do |attr|
   resources :sb_posts, :name_prefix => "#{attr}_", :path_prefix => "/#{attr.pluralize}/:#{attr}_id"
 end
@@ -124,6 +137,8 @@ resources :users, :member_path => '/:id', :nested_member_path => '/:user_id', :m
   user.resources :favorites, :name_prefix => 'user_'
   user.resources :messages, :collection => { :delete_selected => :post, :auto_complete_for_username => :any }  
   user.resources :comments
+  user.resources :groups
+  
 end
 resources :votes
 resources :invitations
