@@ -105,6 +105,23 @@ class BaseController < ApplicationController
     return @user
   end
 
+  def current_group
+    @group = Group.find(params[:group_id])
+    return @group
+  end
+
+  def find_group
+    return current_group
+  end
+
+  def current_group_owner
+    if find_group.owner == current_user
+      return current_user
+    end
+  return false
+  end
+  
+
   def popular_tags(limit = nil, order = ' tags.name ASC', type = nil)
     sql = "SELECT tags.id, tags.name, count(*) AS count 
       FROM taggings, tags 
