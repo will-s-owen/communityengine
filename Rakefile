@@ -53,8 +53,8 @@ begin
     gem.authors = ["Bruno Bornsztein"]    
     gem.version = File.read('VERSION')
     
-    gem.add_dependency 'rails', '3.1.0.beta1'
-    gem.add_dependency 'rack', '1.3.0.beta'    
+    gem.add_dependency 'rails', '3.1.0.rc1'
+    gem.add_dependency 'rack', '1.3.0.beta2'    
     gem.add_dependency 'arel', '~> 2.1.0'        
 
     gem.add_dependency 'authlogic'
