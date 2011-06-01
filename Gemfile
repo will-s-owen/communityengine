@@ -9,7 +9,7 @@ group :development do
 end
 
 group :test do
-  gem 'rails', '3.1.0.rc1'
+  gem 'rails', :git => 'git://github.com/will-s-owen/rails.git', :branch => '3-1-stable'
   gem 'arel', '~> 2.1.0'
   gem "rack", '1.3.0.beta2'
   gem 'authlogic', :git => 'https://github.com/bborn/authlogic.git'
