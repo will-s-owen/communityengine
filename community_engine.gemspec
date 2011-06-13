@@ -1756,7 +1756,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_runtime_dependency(%q<rails>, ["= 3.1.0.rc1"])
+      s.add_runtime_dependency(%q<rails>, ["= 3.1.0.rc4"])
       s.add_runtime_dependency(%q<rack>, ["= 1.3.0.beta2"])
       s.add_runtime_dependency(%q<arel>, ["~> 2.1.0"])
       s.add_runtime_dependency(%q<authlogic>, [">= 0"])
