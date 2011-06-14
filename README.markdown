@@ -21,7 +21,7 @@ Getting CommunityEngine Running
 		# Bundle edge Rails
 	  gem 'rails', '3.1.0.beta1'
 	  gem 'arel', '~> 2.1.0'
-	  gem "rack", '~ 1.3.0'
+	  gem "rack", '~> 1.3.0'
 
 		# Temporary edge sources for other libraries
 	  gem 'authlogic', :git => 'https://github.com/bborn/authlogic.git'

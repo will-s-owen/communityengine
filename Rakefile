@@ -54,7 +54,7 @@ begin
     gem.version = File.read('VERSION')
     
     gem.add_dependency 'rails', '3.1.0.rc4'
-    gem.add_dependency 'rack', '~ 1.3.0'    
+    gem.add_dependency 'rack', '~> 1.3.0'    
     gem.add_dependency 'arel', '~> 2.1.0'        
 
     gem.add_dependency 'authlogic'
