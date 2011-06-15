@@ -9,12 +9,14 @@
 =stylesheet_link_tag "/assets/stylesheets/lightbox"
 =stylesheet_link_tag "/assets/stylesheets/reset-fonts-grids"
 =stylesheet_link_tag "/assets/stylesheets/screen"
+=stylesheet_link_tag 'formtastic'
+=stylesheet_link_tag 'formtastic_changes'
 
 = include_tiny_mce_if_needed
 
 - if forum_page?
-  = javascript_include_tag 'forum'
-  = stylesheet_link_tag 'forum'
+  = javascript_include_tag '/assets/javascripts/forum'
+  = stylesheet_link_tag '/assets/stylesheets/forum'
 
   - unless @feed_icons.blank?
     - @feed_icons.each do |feed|

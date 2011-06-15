@@ -272,7 +272,7 @@ label {
 /* random */
 
 .photo {
-	background:#aaa url(/assets/clearbits/smile.gif) no-repeat 8px 8px;
+	background:#aaa url(/assets/images/clearbits/smile.gif) no-repeat 8px 8px;
 }
 #footer_content .photo {
 	/* Prevents conflict with footer class*/
@@ -525,7 +525,7 @@ p.online {margin-bottom:0;}
 
 img.icon {
 	background:#696;
-	background-image: url(/assets/clearbits/bg_rounded.gif);
+	background-image: url(/assets/images/clearbits/bg_rounded.gif);
 	background-repeat: no-repeat;
 	vertical-align: bottom;
 	}
