@@ -187,7 +187,7 @@ module BaseHelper
 					:url => hash_for_user_friendships_url(:user_id => current_user.id, :friend_id => user.id), 
 					:method => :post }, {:class => "add_friend button"}
 		html +=	"<span style='display:none;' class='spinner'>"
-		html += image_tag 'spinner.gif', :plugin => "community_engine"
+		html += image_tag '/assets/images/spinner.gif', :plugin => "community_engine"
 		html += :requesting_friendship.l+" ...</span></span>"
 		html.html_safe
   end
