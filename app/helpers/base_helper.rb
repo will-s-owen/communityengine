@@ -194,9 +194,22 @@ module BaseHelper
 
   def topnav_tab(name, options)
     classes = [options.delete(:class)]
+	id="topnav_tab_#{(options[:section])[0]}"
+	sub_id="#{(options[:section])[0]}_menu"
+	links= (options[:links] ? options.delete(:links) : {})
     classes << 'current' if options[:section] && (options.delete(:section).to_a.include?(@section))
     
-    string = "<li class='#{classes.join(' ')}'>" + link_to( content_tag(:span, name), options.delete(:url), options) + "</li>"
+	options.update( {:class => 'nav'} )
+    
+    string = "<li class='#{classes.join(' ')}' id='#{id}'>" + link_to( content_tag(:span, name), options.delete(:url), options)
+	if !links.empty?
+		string += "<div id='#{sub_id}' class='mega-menu'>"
+		links.each do |l|
+			string+= link_to(l[0],l[1])
+		end
+		string += "</div>"
+	end
+	string += "</li>"
     string.html_safe
   end
 
