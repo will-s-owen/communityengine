@@ -2,7 +2,7 @@
 -@section = 'forums'
 
 -if admin?
-  -box :class => "alt first_alt" do 
+  -box :class => "alt first_alt round" do 
     %h3= :admin.l
     %p= link_to :create_new_forum.l, new_forum_path, :class => "utility"
 

@@ -13,8 +13,8 @@
 .yui-b  
   =render :partial => 'shared/explore'
 
-  -box :class => "alt" do 
-    %h3
+  -box :class => "alt round" do 
+    %h3{:class =>'round_5'}
       = :whats_hot.l
       
     %ul.list.page
@@ -23,13 +23,13 @@
     %h6.all
       %a{:href=>popular_url}= :see_all.l
 
-  -box :class => "alt" do 
-    %h3
+  -box :class => "alt round" do 
+    %h3{:class =>'round_5'}
       =:featured_writer.l
     -@featured_writers.each do |user|
       =render :partial => "users/sidebar_user", :locals => {:user => user}
 
-  -box :class => "alt" do 
+  -box :class => "alt round" do 
     %h3= :active_users.l
     -@active_users.each do |user|    
       =render :partial => "users/sidebar_user", :locals => {:user => user}      

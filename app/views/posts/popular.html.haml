@@ -19,8 +19,8 @@
                 &raquo;
                 =:log_in.l
 
-  -box :class => "alt" do 
-    %h3= :this_month_best.l 
+  -box :class => "alt round" do 
+    %h3{:class =>'round_5'}= :this_month_best.l 
     %ul.list.page    
       - @monthly_popular_posts.each do |post|
         =render :partial => 'posts/sidebar_post', :locals => {:post => post}

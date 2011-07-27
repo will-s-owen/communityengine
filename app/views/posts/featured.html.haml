@@ -2,8 +2,8 @@
 
 .yui-b
 
-  -box :class => "alt first_alt" do 
-    %h3= :featured_writers.l
+  -box :class => "alt first_alt round" do 
+    %h3{:class =>'round_5'}= :featured_writers.l
     - @featured_writers.each do |user|
       = render :partial => "users/sidebar_user", :locals => {:user => user}
 

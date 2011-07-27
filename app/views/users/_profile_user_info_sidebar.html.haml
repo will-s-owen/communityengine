@@ -1,6 +1,6 @@
 - if current_user && current_user.admin?
-  -box :class => "first_alt alt" do 
-    %h3
+  -box :class => "first_alt alt round" do 
+    %h3{:class =>'round_5'}
       =:admin_controls.l
     = link_to( "&raquo; #{:assume_user_id.l}".html_safe, assume_user_path(@user) )
     %br/
