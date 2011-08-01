@@ -31,6 +31,7 @@ class BaseController < ApplicationController
     @posts = Post.find_recent
 	@music = MusicTrack.find_recent
 	@headlines = Headline.find_recent
+	@videos = TmpVideo.find_recent
 
     @rss_title = "#{configatron.community_name} "+:recent_posts.l
     @rss_url = rss_url
