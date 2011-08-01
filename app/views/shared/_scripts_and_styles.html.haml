@@ -6,14 +6,16 @@
 -#=javascript_include_tag '/assets/javascripts/event-selectors'
 =javascript_include_tag '/assets/javascripts/controls'
 
-=javascript_include_tag 'jquery-1.4.2.min'
-=javascript_include_tag 'ticker'
-
 =stylesheet_link_tag "/assets/stylesheets/lightbox"
 =stylesheet_link_tag "/assets/stylesheets/reset-fonts-grids"
 =stylesheet_link_tag "/assets/stylesheets/screen - black"
 =stylesheet_link_tag 'formtastic'
 =stylesheet_link_tag 'formtastic_changes'
+
+=javascript_include_tag 'jquery-1.4.2.min'
+%script{:type=>"text/javascript"}
+  var $j = jQuery.noConflict();
+=javascript_include_tag 'ticker'
 
 = include_tiny_mce_if_needed
 

@@ -27,7 +27,10 @@ class BaseController < ApplicationController
   end
 
   def site_index
+    params[:section]='home'
     @posts = Post.find_recent
+	@music = MusicTrack.find_recent
+	@headlines = Headline.find_recent
 
     @rss_title = "#{configatron.community_name} "+:recent_posts.l
     @rss_url = rss_url
